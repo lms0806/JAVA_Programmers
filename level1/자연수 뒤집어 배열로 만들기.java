@@ -1,7 +1,6 @@
 class Solution {
     public int[] solution(long n) {
-        String str = Long.toString(n);
-        String[] strs = str.split("");
+        String[] strs = Long.toString(n).split("");
         int[] answer = new int[strs.length];
         
         for(int i = 0; i < strs.length; i++){
