@@ -7,11 +7,6 @@ class Solution {
         return answer;
     }
     public long gcd(long w, long h){
-        if(w == 0){
-            return h;
-        }
-        else{
-            return gcd((h%w), w);
-        }
+        return (w == 0) ? h : gcd((h%w), w);
     }
 }
