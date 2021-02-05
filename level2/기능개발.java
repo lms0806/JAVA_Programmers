@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
         int[] num = new int[progresses.length];
@@ -23,26 +25,25 @@ class Solution {
             }
         }
         
-        for(int i = 0; i < num.length; i++){
-            if(num[i] != 0){
-                count++;
-            }
-        }
-        
-        int[] answer = new int[count];
+        Stack<Integer> st = new Stack<>();
         
         int number = 0;
-        count = 0;
         for(int i = num.length-1; i >= 0; i--){
             if(num[i] != 0){
-                answer[answer.length - count - 1] = number + 1;
-                count++;
+                st.push(number+1);
                 number = 0;
             }
             else{
                 number++;
             }
         }
+        
+        int[] answer = new int[st.size()];
+        
+        for(int i = 0; i < answer.length; i++){
+            answer[i] = st.pop();
+        }
+        
         return answer;
     }
 }
