@@ -10,18 +10,16 @@ class Solution {
         int i = 0;
         int j = people.length-1;
         while(i <= j){
+            answer++;
             if(j == 0){
-                answer++;
                 break;
             }
-            else if(people[i]+people[j] > limit){
+            else if(people[i] + people[j] > limit){
                 j--;
-                answer++;
             }
             else if(people[i] + people[j] <= limit){
                 i++;
                 j--;
-                answer++;
             }
         }
         return answer;
