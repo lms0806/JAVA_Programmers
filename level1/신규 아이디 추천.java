@@ -25,8 +25,6 @@ class Solution {
             }
         }//7
         
-        System.out.println(answer);
-        
         return answer;
     }
 }
