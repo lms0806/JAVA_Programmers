@@ -12,11 +12,8 @@ class Solution {
             if(A[i] < B[j]){
                 answer++;
                 i++;
-                j++;
             }
-            else if(A[i] >= B[j]){
-                j++;
-            }
+            j++;
         }
         return answer;
     }
