@@ -5,11 +5,12 @@ class Solution {
         int answer = 0;
         
         for(int i = 0; i < s.length(); i++){
-            int a;
+            int j;
             int count = 0, count1 = 0, count2 = 0;
+            int a = 0;
             ArrayList<Character> arr = new ArrayList<>();
-            for(a = 0; a < s.length(); a++){
-                char ch = s.charAt(a);
+            for(j = 0; j < s.length(); j++){
+                char ch = s.charAt(j);
                 
                 if(ch == '(' || ch == '{' || ch == '['){
                     if(ch == '('){
@@ -49,10 +50,14 @@ class Solution {
                 }
             }
             
-            if(a == s.length() && count == 0 && count1 == 0 && count2 == 0){
+            if(j == s.length() && count == 0 && count1 == 0 && count2 == 0){
                 answer++;
+                s = s.substring(2) + s.substring(0,2);
+                i++;
             }
-            s = s.substring(1) + s.substring(0,1);
+            else{
+                s = s.substring(1) + s.substring(0,1);
+            }
         }
         return answer;
     }
