@@ -1,56 +1,34 @@
-import java.util.ArrayList;
+import java.util.Stack;
 
 class Solution {
+    public boolean ischeck(char a, char b){
+        return (a == '(' && b == ')') || (a == '{' && b == '}') || (a == '[' && b == ']');
+    }
     public int solution(String s) {
         int answer = 0;
         
         for(int i = 0; i < s.length(); i++){
             int j;
-            int count = 0, count1 = 0, count2 = 0;
             int a = 0;
-            ArrayList<Character> arr = new ArrayList<>();
+            Stack<Character> stack = new Stack<>();
             for(j = 0; j < s.length(); j++){
                 char ch = s.charAt(j);
                 
                 if(ch == '(' || ch == '{' || ch == '['){
-                    if(ch == '('){
-                        count++;
-                    }
-                    else if(ch == '{'){
-                        count1++;
-                    }
-                     else if(ch == '['){
-                        count2++;
-                    }
-                    arr.add(ch);
+                    stack.push(ch);
                 }
                 else{
-                    if(arr.size() == 0){
+                    if(stack.isEmpty()){
                         break;
                     }
-                    if(ch == ')'){
-                        if(count == 0 || arr.get(arr.size()-1) != '('){
-                            break;
-                        }
-                        count--;
+                    if(!ischeck(stack.peek(),ch)){
+                        break;
                     }
-                    else if(ch == '}'){
-                        if(count1 == 0 || arr.get(arr.size()-1) != '{'){
-                            break;
-                        }
-                        count1--;
-                    }
-                    else if(ch == ']'){
-                        if(count2 == 0 || arr.get(arr.size()-1) != '['){
-                            break;
-                        }
-                        count2--;
-                    }
-                    arr.remove(arr.size()-1);
+                    stack.pop();
                 }
             }
             
-            if(j == s.length() && count == 0 && count1 == 0 && count2 == 0){
+            if(j == s.length() && stack.isEmpty()){
                 answer++;
                 s = s.substring(2) + s.substring(0,2);
                 i++;
