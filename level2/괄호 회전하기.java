@@ -4,6 +4,9 @@ class Solution {
     public boolean ischeck(char a, char b){
         return (a == '(' && b == ')') || (a == '{' && b == '}') || (a == '[' && b == ']');
     }
+    public boolean isopen(char a){
+        return a == '(' || a == '{' || a == '[';
+    }
     public int solution(String s) {
         int answer = 0;
         
@@ -14,7 +17,10 @@ class Solution {
             for(j = 0; j < s.length(); j++){
                 char ch = s.charAt(j);
                 
-                if(ch == '(' || ch == '{' || ch == '['){
+                if(isopen(ch)){
+                    if(a == 0 && stack.isEmpty()){
+                        a = j;
+                    }
                     stack.push(ch);
                 }
                 else{
