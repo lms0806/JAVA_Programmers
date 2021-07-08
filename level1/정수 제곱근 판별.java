@@ -1,19 +1,8 @@
 class Solution {
   public long solution(long n) {
-      long answer = 0;
-      long num = 1;
-      
-      while(true){
-          if(n == num*num){
-              answer = (num+1)*(num+1);
-              break;
-          }
-          else if(n < num*num){
-              answer = -1;
-              break;
-          }
-          num++;
+      if(Math.pow(Math.sqrt(n),2) == n){
+          return (long)Math.pow(Math.sqrt(n)+1,2);
       }
-      return answer;
+      return -1;
   }
 }
