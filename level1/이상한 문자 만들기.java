@@ -4,18 +4,13 @@ class Solution {
       String[] str = s.split("");
       int count = 0;
       
-      for(int i = 0; i < s.length(); i++){
-          if(s.charAt(i) == ' '){
+      for(String ss : str){
+          if(ss.equals(" ")){
               answer += " ";
               count = 0;
               continue;
           }
-          else if(count%2 == 0){
-              answer += str[i].toUpperCase();
-          }
-          else if(count%2 == 1){
-              answer += str[i].toLowerCase();
-          }
+          answer += count % 2 == 0 ? ss.toUpperCase() : ss.toLowerCase();
           count++;
       }
       return answer;
