@@ -1,19 +1,13 @@
 class Solution {
   public int solution(int num) {
-      int answer = 0;
-      int count = 0;
-      while(num != 1){
-          if(answer == 500 && num != 1){
-              answer = -1;
-              break;
+      int answer = -1;
+      long n = (long)num;
+      
+      for(int i = 0; i < 500; i++){
+          if(n == 1){
+              return i;
           }
-          if(num%2 == 0){
-              num/=2;
-          }
-          else if(num%2 == 1){
-              num = num * 3 + 1;
-          }
-          answer++;
+          n = n % 2 == 0 ? n / 2 : n * 3 + 1;
       }
       return answer;
   }
