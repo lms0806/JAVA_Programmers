@@ -1,11 +1,7 @@
+import java.util.Arrays;
+
 class Solution {
   public double solution(int[] arr) {
-      double answer = 0;
-      
-      for(int i = 0; i < arr.length; i++){
-          answer+= arr[i];
-      }
-      answer /= arr.length;
-      return answer;
+      return Arrays.stream(arr).average().orElse(0);
   }
 }
