@@ -24,10 +24,7 @@ class Solution {
                     stack.push(ch);
                 }
                 else{
-                    if(stack.isEmpty()){
-                        break;
-                    }
-                    if(!ischeck(stack.peek(),ch)){
+                    if(stack.isEmpty() || !ischeck(stack.peek(),ch)){
                         break;
                     }
                     stack.pop();
