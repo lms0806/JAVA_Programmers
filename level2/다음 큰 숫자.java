@@ -1,25 +1,20 @@
 class Solution {
     public int solution(int n) {
-        int answer = 0;
-        
         int ncount = onecount(Integer.toBinaryString(n));
         
-        for(int i = n+1; ; i++){
-            int check = onecount(Integer.toBinaryString(i));
-            
-            if(check == ncount){
-                answer = i;
-                break;
+        for(int i = n+1; i < 1000000; i++){
+            if(onecount(Integer.toBinaryString(i)) == ncount){
+                return i;
             }
         }
         
-        return answer;
+        return 0;
     }
     
     public int onecount(String s){
         int count = 0;
-        for(int i = 0; i < s.length(); i++){
-            if(s.charAt(i) == '1'){
+        for(char c : s.toCharArray()){
+            if(c == '1'){
                 count++;
             }
         }
