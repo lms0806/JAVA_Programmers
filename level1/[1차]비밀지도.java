@@ -1,12 +1,10 @@
 class Solution {
     public String[] solution(int n, int[] arr1, int[] arr2) {
         String[] answer = new String[n];
-        int[] num = new int[n];
         String[] str = new String[n];
         
         for(int i = 0; i < n; i++){
-            num[i] = arr1[i] | arr2[i];
-            str[i] = Integer.toBinaryString(num[i]);
+            str[i] = Integer.toBinaryString(arr1[i] | arr2[i]);
             answer[i] = "";
         }
         
