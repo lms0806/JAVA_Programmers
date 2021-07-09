@@ -19,20 +19,10 @@ class Solution {
             
             for(int j = 0; j < n; j++){
                 if(j != n-1){
-                    if(str[i].substring(j,j+1).equals("1")){
-                        answer[i]+="#";
-                    }
-                    else{
-                        answer[i]+=" ";
-                    }
+                    answer[i] += str[i].substring(j, j+1).equals("1") ? "#" : " ";
                 }
                 else{
-                    if(str[i].substring(j).equals("1")){
-                        answer[i]+="#";
-                    }
-                    else{
-                        answer[i]+=" ";
-                    }
+                    answer[i] += str[i].substring(j).equals("1") ? "#" : " ";
                 }
             }
         }
