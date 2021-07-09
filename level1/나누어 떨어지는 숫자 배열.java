@@ -5,30 +5,26 @@ class Solution {
       int[] num = new int[arr.length];
       int count = 0,count1 = 0;
       
+      ArrayList<Integer> arraylist = new ArrayList<>();
       for(int i = 0; i < arr.length; i++){
-          if(arr[i]%divisor == 0){
-              num[i] = arr[i];
-              count++;
-              count1++;
+          if(arr[i] % divisor == 0){
+              arraylist.add(arr[i]);
           }
       }
-      if(count1 == 0){
-          count = 1;
-      }
-      int[] answer = new int[count];
-      if(count == 1){
+      
+      if(arraylist.size() == 0){
+          int[] answer = new int[1];
           answer[0] = -1;
+          return answer;
       }
-      count = 0;
-      
-      for(int i = 0; i < num.length; i++){
-          if(num[i] != 0){
-              answer[count] = num[i];
-              count++;
+      else{
+          int[] answer = new int[arraylist.size()];
+          for(int i = 0; i < answer.length; i++){
+              answer[i] = arraylist.get(i);
           }
+          
+          Arrays.sort(answer);
+          return answer;
       }
-      
-      Arrays.sort(answer);
-      return answer;
   }
 }
