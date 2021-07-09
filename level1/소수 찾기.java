@@ -9,9 +9,6 @@ class Solution {
       }
       
       for(int i = 2; i <= n; i++){
-          if(number[i] == 0){
-              continue;
-          }
           for(int j= 2*i; j<=n; j += i) {
               number[j] = 0;
           }
