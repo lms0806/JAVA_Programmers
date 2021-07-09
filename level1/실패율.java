@@ -19,12 +19,7 @@ class Solution {
                     stages[j] = 0;
                 }
             }
-            if(clear == 0){
-                result[i] = 0;
-            }
-            else{
-                result[i] = (double)clear/(double)trys;
-            }
+            result[i] = clear == 0 ? 0 : (double)clear/(double)trys;
             stagelevel++;
         }
         
@@ -53,6 +48,7 @@ class Solution {
                 }
             }
         }
+        
         return answer;
     }
 }
