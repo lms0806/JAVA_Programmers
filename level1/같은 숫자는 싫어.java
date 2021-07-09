@@ -1,30 +1,22 @@
 import java.util.*;
 
 public class Solution {
-	public int[] solution(int []arr) {
-        int count = 0;
-        int[] arr1 = new int[arr.length];
+    public int[] solution(int []arr) {
+        ArrayList<Integer> arraylist = new ArrayList<>();
         
-        for(int i = 1; i < arr.length; i++){
-            if(arr[i] == arr[i-1]){
-                arr[i-1] = -1;
+        int prenum = 10;
+        for(int num : arr){
+            if(prenum != num){
+                arraylist.add(num);
             }
+            prenum = num;
         }
         
-        for(int i = 0; i < arr.length; i++){
-            if(arr[i] != -1){
-                count++;
-            }
+        int[] answer = new int[arraylist.size()];
+        
+        for(int i = 0; i < answer.length; i++){
+            answer[i] = arraylist.get(i);
         }
-        int[] answer = new int[count];
-        int count1 = 0;
-        for(int i = 0; i < arr.length; i++){
-            if(arr[i] != -1){
-                answer[count1]=arr[i];
-                count1++;
-            }
-        }
-
         return answer;
-	}
+    }
 }
