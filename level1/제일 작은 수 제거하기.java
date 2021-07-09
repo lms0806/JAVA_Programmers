@@ -1,13 +1,6 @@
 class Solution {
     public int[] solution(int[] arr) {
-        int size = 0;
-        if(arr.length == 1){
-            size = 1;
-        }
-        else{
-            size = arr.length-1;
-        }
-        int[] answer = new int[size];
+        int[] answer = new int[arr.length == 1 ? 1 : arr.length - 1];
         
         int num = arr[0];
         if(answer.length == 1){
@@ -15,16 +8,15 @@ class Solution {
             return answer;
         }
         else{
-            for(int i = 0; i < arr.length; i++){
-                if(arr[i] < num){
-                    num = arr[i];
+            for(int n : arr){
+                if(n < num){
+                    num = n;
                 }
             }
             int j = 0;
-            for(int i = 0; i < arr.length; i++){
-                if(arr[i] != num){
-                    answer[j] = arr[i];
-                    j++;
+            for(int n : arr){
+                if(n != num){
+                    answer[j++] = n;
                 }
             }
         }
