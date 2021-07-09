@@ -7,8 +7,7 @@ class Solution {
 
         for(int i = 0; i < commands.length; i++){
             int idx = 0;
-            int num = commands[i][1] - commands[i][0] + 1;
-            split = new int[num];
+            split = new int[commands[i][1] - commands[i][0] + 1];
             for(int j = commands[i][0]-1; j <= commands[i][1]-1; j++){
                 split[idx] = array[j];
                 idx++;
@@ -16,6 +15,7 @@ class Solution {
             Arrays.sort(split);
             answer[i] = split[commands[i][2]-1];
         }
+        
         return answer;
     }
 }
