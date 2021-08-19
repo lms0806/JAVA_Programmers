@@ -7,8 +7,7 @@ class Solution {
         str1 = str1.toLowerCase();
         str2 = str2.toLowerCase();
         
-        ArrayList<String> arr = new ArrayList<>();
-        ArrayList<String> arr2 = new ArrayList<>();
+        ArrayList<String> arr = new ArrayList<>(), arr2 = new ArrayList<>();
         
         int count = 0, count1 = 0;
         for(int i = 0; i < str1.length()-1; i++){
@@ -18,16 +17,15 @@ class Solution {
             }
         }
         
-        for(int i = 0; i < str2.length()-1; i++){
-            String s = str2.substring(i,i+2).replaceAll("[^a-z]","");
+        for(int i = 0; i < str2.length() - 1; i++){
+            String s = str2.substring(i, i + 2).replaceAll("[^a-z]","");
             if(s.length() == 2){
                 arr2.add(s);
             }
         }
 
-        
-        for(int i = 0; i < arr.size(); i++){
-           if(arr2.remove(arr.get(i))){
+        for(String s : arr){
+           if(arr2.remove(s)){
                count++;
             }
             count1++;
