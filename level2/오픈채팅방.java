@@ -6,8 +6,8 @@ class Solution {
         ArrayList<String> arr = new ArrayList<>();
         
         HashMap<String, String> map = new HashMap<>();
-        for(int i = 0; i < record.length; i++){
-            String[] str = record[i].split(" ");
+        for(String s : record){
+            String[] str = s.split(" ");
             
             if(str[0].equals("Change")){
                 map.put(str[1], str[2]);
@@ -17,8 +17,8 @@ class Solution {
             }
         }
         
-        for(int i = 0; i < record.length; i++){
-            String[] str = record[i].split(" ");
+        for(String s : record){
+            String[] str = s.split(" ");
             
             if(str[0].equals("Enter")){
                 arr.add(map.get(str[1]) + "님이 들어왔습니다.");
