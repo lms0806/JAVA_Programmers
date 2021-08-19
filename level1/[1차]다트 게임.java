@@ -41,11 +41,8 @@ class Solution {
                 if(i > 0 && dartResult.charAt(i-1) != '0'){
                     num[i] = (int)Math.pow((dartResult.charAt(i - 1) - '0'), 3);
                 }
-                else if(i > 1 && dartResult.charAt(i-2) == '1'){
-                    num[i] = 1000;
-                }
                 else{
-                    num[i] = 0;
+                    num[i] = i > 1 && dartResult.charAt(i - 2) == '1' ? 1000 : 0;
                 }
             }
         }
