@@ -9,10 +9,7 @@ class Solution {
         for(String s : record){
             String[] str = s.split(" ");
             
-            if(str[0].equals("Change")){
-                map.put(str[1], str[2]);
-            }
-            if(str[0].equals("Enter")){
+            if(str[0].equals("Change") || str[0].equals("Enter")){
                 map.put(str[1], str[2]);
             }
         }
@@ -29,7 +26,6 @@ class Solution {
         }
         
         String[] answer = new String[arr.size()];
-        
         for(int i = 0; i < arr.size(); i++){
             answer[i] = arr.get(i);
         }
