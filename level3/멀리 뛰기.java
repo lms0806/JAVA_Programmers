@@ -1,6 +1,6 @@
 class Solution {
     public static int solution(int n) {
-		int[] dp = new int[n + 1];
+		int[] dp = new int[2001];
 		
 		dp[1] = 1;
 		dp[2] = 2;
