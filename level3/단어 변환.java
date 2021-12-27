@@ -19,15 +19,15 @@ class Solution {
 			if(!visited[i]) {
 				int check = 0;
 				for(int j = 0; j < words[i].length(); j++) {
-					if(words[i].charAt(j) == begin.charAt(j)) {
+					if(words[i].charAt(j) != begin.charAt(j)) {
 						check++;
 					}
 				}
 				
-				if(check == words[i].length() - 1) {
+				if(check < 2) {
 					visited[i] = true;
 					dfs(words[i], target, words, count + 1);
-					visited[i] = false;
+                    visited[i] = false;
 				}
 			}
 		}
