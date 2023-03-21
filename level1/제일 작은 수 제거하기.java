@@ -1,23 +1,20 @@
 class Solution {
     public int[] solution(int[] arr) {
-        int[] answer = new int[arr.length == 1 ? 1 : arr.length - 1];
-        
-        if(answer.length == 1){
-            answer[0] = -1;
-            return answer;
+        if(arr.length == 1){
+            return new int[] {-1};
         }
-        else{
-            int num = arr[0];
-            for(int n : arr){
-                if(n < num){
-                    num = n;
-                }
-            }
-            int j = 0;
-            for(int n : arr){
-                if(n != num){
-                    answer[j++] = n;
-                }
+        
+        int[] answer = new int[arr.length - 1];
+        int min = Integer.MAX_VALUE;
+        
+        for(int a : arr){
+            min = Math.min(min, a);
+        }
+        
+        int idx = 0;
+        for(int a : arr){
+            if(min != a){
+                answer[idx++] = a;
             }
         }
         return answer;
