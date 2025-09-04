@@ -1,20 +1,9 @@
-import java.util.HashSet;
-
 class Solution {
     public int solution(int[][] dots) {
-        HashSet<Double> set = new HashSet<>();
-        
-        for(int i = 0; i < dots.length; i++) {
-        	for(int j = i + 1; j < dots.length; j++) {
-        		double n = (double)((dots[i][1] - dots[j][1])) / (double)((dots[i][0] - dots[j][0]));
-                
-        		if(set.contains(n)) {
-        			return 1;
-        		}
-        		
-        		set.add(n);
-        	}
-        }
-        return 0;
+        return solve(dots[0], dots[1], dots[2], dots[3]) || solve(dots[0], dots[2], dots[1], dots[3]) || solve(dots[0], dots[3], dots[1], dots[2]) ? 1 : 0;
+    }
+    
+    public static boolean solve(int[] a, int[] b, int[] c, int[] d){
+        return (a[0] - b[0]) * (c[1] - d[1]) == (c[0] - d[0]) * (a[1] - b[1]);
     }
 }
